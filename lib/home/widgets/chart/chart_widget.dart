@@ -20,7 +20,7 @@ class ChartWidget extends StatelessWidget {
                 strokeWidth: 10,
                 value: 0.75,
                 backgroundColor: AppColors.chartSecondary,
-                valueColor: AlwaysStoppedAnimation<Color>(AppColors.grey),
+                valueColor: AlwaysStoppedAnimation<Color>(AppColors.chartPrimary),
               )
             ),
           ),
