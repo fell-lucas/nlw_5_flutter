@@ -4,7 +4,7 @@ import 'package:nlw_5_flutter/core/core.dart';
 import 'package:nlw_5_flutter/home/widgets/chart/chart_widget.dart';
 
 class ScoreCardWidget extends StatelessWidget {
-  const ScoreCardWidget({Key? key}): super(key: key);
+  const ScoreCardWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +13,9 @@ class ScoreCardWidget extends StatelessWidget {
       child: Container(
         height: 136,
         decoration: BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.circular(15)
-        ),
+            border: Border.fromBorderSide(BorderSide(color: AppColors.border)),
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(15)),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Row(
@@ -37,8 +37,14 @@ class ScoreCardWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Vamos começar", style: AppTextStyles.heading,),
-                      Text("Complete os desafios e avance em conhecimento", style: AppTextStyles.body,),
+                      Text(
+                        "Vamos começar",
+                        style: AppTextStyles.heading,
+                      ),
+                      Text(
+                        "Complete os desafios e avance em conhecimento",
+                        style: AppTextStyles.body,
+                      ),
                     ],
                   ),
                 ),

@@ -35,6 +35,10 @@ class AppBarWidget extends PreferredSize {
                           width: 58,
                           height: 58,
                           decoration: BoxDecoration(
+                            border: Border.fromBorderSide(BorderSide(
+                              color: AppColors.purple,
+                              width: 2,
+                            )),
                             borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
                               image: NetworkImage(
