@@ -42,19 +42,25 @@ class _QuizWidgetState extends State<QuizWidget> {
             ),
           ),
           SizedBox(height: 24),
-          for (var i = 0; i < widget.question.answers.length; i++)
-            AnswerWidget(
-              answer: answer(i),
-              disabled: selectedIndex != -1,
-              isSelected: selectedIndex == i,
-              onTap: (value) {
-                selectedIndex = i;
-                setState(() {});
-                Future.delayed(Duration(milliseconds: 500)).then(
-                  (_) => widget.onSelected(value),
-                );
-              },
+          Expanded(
+            child: ListView(
+              children: [
+                for (var i = 0; i < widget.question.answers.length; i++)
+                  AnswerWidget(
+                    answer: answer(i),
+                    disabled: selectedIndex != -1,
+                    isSelected: selectedIndex == i,
+                    onTap: (value) {
+                      selectedIndex = i;
+                      setState(() {});
+                      Future.delayed(Duration(milliseconds: 500)).then(
+                        (_) => widget.onSelected(value),
+                      );
+                    },
+                  ),
+              ],
             ),
+          ),
         ],
       ),
     );

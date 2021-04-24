@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:nlw_5_flutter/challenge/challenge_page.dart';
 import 'package:nlw_5_flutter/core/app_colors.dart';
 import 'package:nlw_5_flutter/home/home_controller.dart';
@@ -29,6 +30,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    int width4 = 800;
+    final double width = MediaQuery.of(context).size.width;
+
     if (controller.state == HomeState.success) {
       return Scaffold(
         appBar: AppBarWidget(
@@ -39,14 +43,19 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  LevelButtonWidget(label: "Fácil"),
-                  LevelButtonWidget(label: "Médio"),
-                  LevelButtonWidget(label: "Difícil"),
-                  LevelButtonWidget(label: "Perito"),
-                ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    LevelButtonWidget(label: "Fácil"),
+                    SizedBox(width: 8),
+                    LevelButtonWidget(label: "Médio"),
+                    SizedBox(width: 8),
+                    LevelButtonWidget(label: "Difícil"),
+                    SizedBox(width: 8),
+                    LevelButtonWidget(label: "Perito"),
+                  ],
+                ),
               ),
               SizedBox(height: 20),
               Expanded(
@@ -55,22 +64,24 @@ class _HomePageState extends State<HomePage> {
                   mainAxisSpacing: 16,
                   crossAxisCount: 2,
                   children: controller.quizzes!
-                      .map((e) => QuizCardWidget(
-                            title: e.title,
-                            completed: "${e.questionsAnswered}/${e.questions.length}",
-                            percent: e.questionsAnswered / e.questions.length,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ChallengePage(
-                                    questions: e.questions,
-                                    title: e.title,
-                                  ),
+                      .map(
+                        (e) => QuizCardWidget(
+                          title: e.title,
+                          completed: "${e.questionsAnswered}/${e.questions.length}",
+                          percent: e.questionsAnswered / e.questions.length,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ChallengePage(
+                                  questions: e.questions,
+                                  title: e.title,
                                 ),
-                              );
-                            },
-                          ))
+                              ),
+                            );
+                          },
+                        ),
+                      )
                       .toList(),
                 ),
               ),
