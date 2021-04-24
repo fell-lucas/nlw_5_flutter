@@ -39,7 +39,7 @@ class AnswerWidget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: AnimatedContainer(
-            duration: Duration(seconds: 1),
+            duration: Duration(milliseconds: 500),
             curve: Curves.linear,
             padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
