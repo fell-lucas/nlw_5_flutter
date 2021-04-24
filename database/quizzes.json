@@ -27,7 +27,8 @@
         "title": "Está curtindo o flutter?",
         "answers": [
           {
-            "title": "Possibilita a criação de aplicativos compilados nativamente."
+            "title": "Possibilita a criação de aplicativos compilados nativamente.",
+            "isCorrect": true
           },
           {
             "title": "Possibilita a criação de aplicativos compilados nativamente."
