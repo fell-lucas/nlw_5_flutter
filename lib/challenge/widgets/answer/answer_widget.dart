@@ -59,10 +59,19 @@ class AnswerWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(50),
               ),
               child: isSelected
-                  ? Icon(
-                      _selectedIconCorrect,
-                      size: 16,
-                      color: AppColors.white,
+                  ? Container(
+                      decoration: BoxDecoration(boxShadow: [
+                        BoxShadow(
+                          color: _selectedColorCorrect.withOpacity(0.3),
+                          spreadRadius: 2,
+                          blurRadius: 15,
+                        )
+                      ]),
+                      child: Icon(
+                        _selectedIconCorrect,
+                        size: 16,
+                        color: AppColors.white,
+                      ),
                     )
                   : null,
             ),
