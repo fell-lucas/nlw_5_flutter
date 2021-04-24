@@ -38,7 +38,9 @@ class AnswerWidget extends StatelessWidget {
         onTap: onTap,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Container(
+          child: AnimatedContainer(
+            duration: Duration(seconds: 1),
+            curve: Curves.linear,
             padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: isSelected ? _selectedColorCardCorrect : AppColors.white,
